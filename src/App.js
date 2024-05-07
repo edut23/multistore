@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+import Login from './components/login';
+import { useState } from 'react';
+import Signup from './components/signup';
 
 function App() {
+  const [page, setPage] = useState(0);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Pharmaco</h1>
       </header>
+      <main className="main">
+        {page === 0 && <Login setPage={setPage}/>}
+        {page === 1 && <Signup setPage={setPage}/>}
+      </main>
     </div>
   );
 }
