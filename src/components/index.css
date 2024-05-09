@@ -1,0 +1,29 @@
+.form{
+    max-width: 40%;
+    border: solid 1px #888888;
+    box-shadow: 1px 1px #888888;
+    border-radius: 8px;
+    background-color: #F6F4F3;
+}
+
+@media screen and (max-width: 800px) {
+    .form{
+        max-width: 80%;
+        width: -webkit-fill-available;
+    }
+}
+
+.link{
+    color: #276FBF !important;
+    font-size: 14px;
+}
+  
+.link:hover{
+    color: #1f528c !important;
+}
+
+.error{
+    color: #F72C25;
+    font-size: 12px;
+    padding-top: 3px;
+}

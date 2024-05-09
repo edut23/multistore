@@ -1,9 +1,15 @@
-.App {
-  text-align: center;
-  background-color: #FFFFFF;
-  min-height: 100vh;
+@font-face {
+  font-family: 'MontserratAmplav';
+  src: url('./assets/Montserrat/Montserrat-Medium.otf');
 }
 
+.App {
+  text-align: center;
+  background-color: #F6F4F3;
+  min-height: 100vh;
+  font-family: 'MontserratAmplav';
+  font-weight: 400;
+}
 
 .App-header {
   display: flex;
@@ -12,6 +18,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: red;
+  padding-top: 15px;
 }
 
 .main{
@@ -19,4 +26,22 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+input{
+  background-color: #F6F4F3 !important;
+  border-color: #393939;
+  box-shadow: 0.5px 0.5px #888888;
+  font-weight: 200 !important;
+}
+
+.dftBlue{
+  background-color: #276FBF !important;
+  border: #276FBF !important;
+  box-shadow: 1px 1px #888888;
+}
+
+.dftBlue:hover{
+  background-color: #1f528c !important;
+  border: #1f528c !important;
 }
