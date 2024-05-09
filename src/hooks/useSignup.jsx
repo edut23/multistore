@@ -18,17 +18,18 @@ const useSignup = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if(newData.email === confirmEmail)
+        if(newData.email === confirmEmail){
             props.setData(prevState => [...prevState, newData]);
+            handlePage();
+        }
         else
             setError(true);
     }
 
     useEffect(() => {
-        console.log(error, newData.email, confirmEmail)
         if(error && newData.email === confirmEmail)
             setError(false);
-    },[confirmEmail, newData])
+    },[confirmEmail, newData, error])
 
 
     return{

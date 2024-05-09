@@ -6,13 +6,14 @@ import Login from './components/login';
 import { useEffect, useState } from 'react';
 import Signup from './components/signup';
 import Logo from './assets/Pharmaco logo';
+import List from './components/list';
 
 function App() {
   const [page, setPage] = useState(0);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    if(data !== null){
+    if(data.length !== 0){
       const dataString = JSON.stringify(data);
       localStorage.setItem('dataPharma', dataString);
     }
@@ -33,6 +34,7 @@ function App() {
       <main className="main">
         {page === 0 && <Login setPage={setPage} data={data}/>}
         {page === 1 && <Signup setPage={setPage} setData={setData}/>}
+        {page === 2 && <List setPage={setPage} data={data} setData={setData}/>}
       </main>
       <footer>
         <p className={`mb-0 pt-1 fs-6 ${window.innerWidth > 800 && "text-end me-2" }`}>Aplicação teste de Edu Teodoro.</p>

@@ -6,6 +6,18 @@
     background-color: #F6F4F3;
 }
 
+.table{
+    background-color: #F6F4F3 !important;
+    
+    th{
+        background-color: #F6F4F3 !important; 
+    }
+
+    td{
+        background-color: #F6F4F3 !important;  
+    }
+}
+
 @media screen and (max-width: 800px) {
     .form{
         max-width: 80%;
