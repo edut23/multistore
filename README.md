@@ -1,6 +1,9 @@
 # Getting Started with Pharmaco, made with Bootstrap.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created with React, Bootstrap, Jest and React Testing Library.
+Node 21.7.0
+React 18.3.1
+Yarn 1.22.19
 
 ## Available Scripts
 
