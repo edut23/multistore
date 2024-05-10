@@ -1,13 +1,8 @@
-@font-face {
-  font-family: 'MontserratAmplav';
-  src: url('./assets/Montserrat/Montserrat-Medium.otf');
-}
-
 .App {
   text-align: center;
   background-color: #F6F4F3;
   min-height: 100vh;
-  font-family: 'Montserrat';
+  font-family: 'MontSerrat';
   font-weight: 400;
 }
 
