@@ -1,20 +1,20 @@
 import { useState } from "react";
 
-const useLogin = (props) => {
+const useLogin = ({setPage, data}) => {
 
     const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(false);
 
     const handlePage = () => {
-        props.setPage(1);
+        setPage(1);
     }
 
     function verify() {
         try{
-            const targetUser = props.data.find((u) => u.user === user && u.password === password);
+            const targetUser = data.find((u) => u.user === user && u.password === password);
             if(targetUser !== undefined)
-                props.setPage(2);
+                setPage(2);
             else
                 setError(true);
         }catch(error){

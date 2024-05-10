@@ -1,13 +1,28 @@
 .form{
     max-width: 40%;
+    max-height: 100%;
     border: solid 1px #888888;
     box-shadow: 1px 1px #888888;
     border-radius: 8px;
     background-color: #F6F4F3;
+    overflow-y: auto;
+
+    span{   
+        box-shadow: 0.5px 0.5px #888888;
+        cursor: default;
+        background-color: #F6F4F3;
+    }
+}
+
+.list{
+    overflow-y: auto;
+    max-height: 50vh;
 }
 
 .table{
     background-color: #F6F4F3 !important;
+    font-size: 14px;
+    vertical-align: baseline;
     
     th{
         background-color: #F6F4F3 !important; 
@@ -38,4 +53,24 @@
     color: #F72C25;
     font-size: 12px;
     padding-top: 3px;
+}
+
+.exit{
+    background-color: #F6F4F3 !important;
+    border: solid 1px #F72C25 !important;
+    box-shadow: 1px 1px #888888;
+    color: #F72C25 !important;
+    height: min-content;
+    align-self: center;
+    margin-bottom: .5rem;
+}
+
+.exit:hover{
+    background-color: #F72C25 !important;
+    border: #F72C25 !important;
+    color: #F6F4F3 !important;
+}
+
+.min{
+    margin-top: -4px;
 }
