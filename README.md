@@ -5,7 +5,11 @@ Node 21.7.0.
 React 18.3.1.
 Yarn 1.22.19.
 
-## Available Scripts
+## Install Node Packages
+
+Use ´yarn install´ or ´npm install´.
+
+## Execut those available Scripts
 
 In the project directory, you can run:
 
