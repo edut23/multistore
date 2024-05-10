@@ -1,9 +1,9 @@
 # Getting Started with Pharmaco, made with Bootstrap.
 
 This project was created with React, Bootstrap, Jest and React Testing Library.
-Node 21.7.0
-React 18.3.1
-Yarn 1.22.19
+Node 21.7.0.
+React 18.3.1.
+Yarn 1.22.19.
 
 ## Available Scripts
 
