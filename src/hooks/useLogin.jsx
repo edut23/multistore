@@ -1,13 +1,43 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-const useSignup = (props) => {
+const useLogin = ({setPage, data}) => {
 
-    const [approved, setApproved] = useState(false);
+    const [user, setUser] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState(false);
+
+    const handlePage = () => {
+        setPage(1);
+    }
+
+    function verify() {
+        try{
+            const targetUser = data.find((u) => u.user === user && u.password === password);
+            if(targetUser !== undefined)
+                setPage(2);
+            else
+                setError(true);
+        }catch(error){
+            setError(true);
+        }
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        verify();
+    }
+      
 
 
     return{
-        approved
+        user,
+        setUser,
+        password,
+        setPassword,
+        handlePage,
+        handleSubmit,
+        error
     }
 }
 
-export default useSignup;
+export default useLogin;

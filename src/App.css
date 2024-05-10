@@ -45,3 +45,15 @@ input{
   background-color: #1f528c !important;
   border: #1f528c !important;
 }
+
+.dftRed{
+  background-color: #F72C25 !important;
+  border: #F72C25 !important;
+  box-shadow: 1px 1px #888888;
+  color: #F6F4F3 !important;
+}
+
+.dftRed:hover{
+  background-color: #ca2620 !important;
+  border: #ca2620 !important;
+}
