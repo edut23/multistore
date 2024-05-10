@@ -22,10 +22,17 @@ const useSignup = ({setPage, setData}) => {
         if(newData.email === confirmEmail){
             setData(prevState => [...prevState, newData]);
             handlePage();
+            alert("Cadastro realizado.")
         }
         else
             setError(true);
     }
+
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            handleSubmit(event);
+        }
+    };
 
     useEffect(() => {
         if(error && newData.email === confirmEmail)
@@ -40,7 +47,8 @@ const useSignup = ({setPage, setData}) => {
         setConfirmEmail,
         handlePage,
         handleSubmit,
-        error
+        error,
+        handleKeyPress
     }
 }
 
