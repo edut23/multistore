@@ -1,4 +1,4 @@
-# Getting Started with Pharmaco, made with Bootstrap.
+# Getting Started with Pharmaco, made with Bootstrap (works on Mobile).
 
 This project was created with React, Bootstrap, Jest and React Testing Library.
 Node 21.7.0.
