@@ -1,4 +1,6 @@
 import { useState } from "react";
+import useApp from "./useApp";
+import { loginApi } from "../api/login";
 
 const useLogin = ({setPage, data}) => {
 
@@ -6,15 +8,20 @@ const useLogin = ({setPage, data}) => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState(false);
 
+    const {setToken} = useApp();
+
     const handlePage = () => {
         setPage(1);
     }
 
-    function verify() {
+    const login = async() => {
         try{
-            const targetUser = data.find((u) => u.user === user && u.password === password);
-            if(targetUser !== undefined)
+            const token = loginApi(user, password);
+            console.log(token);
+            if(token){
+                setToken(token);
                 setPage(2);
+            }
             else
                 setError(true);
         }catch(error){
@@ -24,7 +31,7 @@ const useLogin = ({setPage, data}) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        verify();
+        login();
     }
       
 

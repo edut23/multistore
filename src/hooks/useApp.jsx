@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 const useApp = () => {
     const [page, setPage] = useState(0);
     const [data, setData] = useState([]);
+    const [token, setToken] = useState(null);
 
     useEffect(() => {
         if(data.length !== 0){
@@ -10,6 +11,10 @@ const useApp = () => {
             localStorage.setItem('dataPharma', dataString);
         }
     },[data])
+
+    useEffect(() => {
+        localStorage.setItem('token', token)
+    },[token])
 
     useEffect(() => {
         const getData = localStorage.getItem('dataPharma');
@@ -23,7 +28,8 @@ const useApp = () => {
         page,
         setPage,
         data,
-        setData
+        setData,
+        setToken
     }
 }
 

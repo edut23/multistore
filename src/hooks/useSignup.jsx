@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { signupApi } from "../api/signup";
+import useApp from "./useApp";
 
 const useSignup = ({setPage, setData}) => {
 
@@ -12,6 +14,7 @@ const useSignup = ({setPage, setData}) => {
 
     const [confirmEmail, setConfirmEmail] = useState("");
     const [error, setError] = useState(false);
+    const {setToken} = useApp();
 
     const handlePage = () => {
         setPage(0)
@@ -19,13 +22,18 @@ const useSignup = ({setPage, setData}) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if(newData.email === confirmEmail){
-            setData(prevState => [...prevState, newData]);
-            handlePage();
-            alert("Cadastro realizado.")
-        }
-        else
+        try{
+            const token = signupApi(newData.user, newData.password, "ADMIN");
+            console.log(token);
+            if(token){
+                setToken(token);
+                setPage(2);
+            }
+            else
+                setError(true);
+        }catch(error){
             setError(true);
+        }
     }
 
     const handleKeyPress = (event) => {
