@@ -9,6 +9,7 @@ const useSignup = ({setPage, setData}) => {
         password: "",
         email: "",
         name: "",
+        role: "CLIENT",
         id: Math.floor(Math.random() * 10000)
     })
 
@@ -23,7 +24,7 @@ const useSignup = ({setPage, setData}) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         try{
-            const token = signupApi(newData.user, newData.password, "ADMIN");
+            const token = signupApi(newData.user, newData.password, newData.role);
             console.log(token);
             if(token){
                 setToken(token);
