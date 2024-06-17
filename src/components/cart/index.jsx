@@ -6,7 +6,7 @@ const Cart = ({ setPage, cartItems }) => {
     cartItems.forEach((item) => {
       total += item.price * item.quantity;
     });
-    return total;
+    return total.toFixed(2);
   };
 
   const total = calculateTotal();
@@ -24,8 +24,8 @@ const Cart = ({ setPage, cartItems }) => {
           {cartItems.map((item, index) => (
             <div key={index}>
               <p>{item.name}</p>
-              <p>{item.price}</p>
-              <p>{item.quantity}</p>
+              <p>R$ {item.price}</p>
+              <p>Quantidade: {item.quantity}</p>
             </div>
           ))}
           <p>Total: R$ {total}</p>
