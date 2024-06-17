@@ -9,7 +9,7 @@ const useSignup = ({setPage, setData}) => {
         password: "",
         email: "",
         name: "",
-        role: "CLIENT",
+        role: "USER",
         id: Math.floor(Math.random() * 10000)
     })
 

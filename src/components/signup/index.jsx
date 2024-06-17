@@ -25,8 +25,8 @@ const Signup = (props) => {
           className="form-control" 
           required
         >
-          <option value="CLIENT">Cliente</option>
-          <option value="STORE">Loja</option>
+          <option value="USER">Cliente</option>
+          <option value="MANAGER">Loja</option>
         </select>
       </div>
       <div className="mb-3 container-sm">
