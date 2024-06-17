@@ -14,7 +14,7 @@ const Login = ({ setUserType, setPage }) => {
     accountType,
     setAccountType,
     isLoggedIn,
-  } = useLogin({ setUserType });
+  } = useLogin({ setUserType, setPage });
 
   const renderSuccessMessage = () => {
     const handleVerProdutosClick = () => {
@@ -86,7 +86,7 @@ const Login = ({ setUserType, setPage }) => {
             <button
               type="button"
               className="btn btn-link p-0 link"
-              onClick={handlePage}
+              onClick={() => handlePage()}
             >
               Primeira vez no site? Cadastre-se!
             </button>

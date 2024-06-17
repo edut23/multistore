@@ -2,7 +2,7 @@ import { useState } from "react";
 import useApp from "./useApp";
 import { loginApi } from "../api/login";
 
-const useLogin = ({setPage, data}) => {
+const useLogin = ({ setUserType, setPage}) => {
 
     const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
