@@ -2,13 +2,11 @@ import { useState } from "react";
 import useApp from "./useApp";
 import { loginApi } from "../api/login";
 
-const useLogin = ({ setUserType, setPage}) => {
+const useLogin = ({ setUserType, setPage, setToken}) => {
 
     const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(false);
-
-    const {setToken} = useApp();
 
     const handlePage = () => {
         setPage(1);
@@ -16,10 +14,11 @@ const useLogin = ({ setUserType, setPage}) => {
 
     const login = async() => {
         try{
-            const token = loginApi(user, password);
-            console.log(token);
+            const token = await loginApi(user, password);
             if(token){
-                setToken(token);
+                setToken(token?.token);
+                setUserType(token?.role[0].authority);
+                console.log(token?.role[0].authority)
                 setPage(2);
             }
             else

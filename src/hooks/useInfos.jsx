@@ -1,16 +1,23 @@
 import { useState, useEffect } from "react";
 import { signupApi } from "../api/signup";
 import useApp from "./useApp";
+import { clientInfosAPI } from "../api/clientInfos";
+import { storeInfosAPI } from "../api/storeInfos";
 
-const useSignup = ({setPage, setData}) => {
+const useInfos = ({userType, setPage, setData}) => {
 
     const [newData, setNewData] = useState({
-        user: "",
-        password: "",
+        username: "",
         email: "",
-        name: "",
-        role: "USER",
-        id: Math.floor(Math.random() * 10000)
+        telefone: "",
+        endereco: "",
+        nome: "",
+        sobrenome: "",
+        CPF: "",
+        CNPJ: "",
+        dataNasc: "",
+        descricao: "",
+        genero: "HOMEM"
     })
 
     const [confirmEmail, setConfirmEmail] = useState("");
@@ -23,10 +30,10 @@ const useSignup = ({setPage, setData}) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try{
-            const token = await signupApi(newData.user, newData.password, newData.role);
+            const token = userType === "ROLE_USER" ? await clientInfosAPI(newData) : await storeInfosAPI(newData);
             console.log(token);
             if(token){
-                setPage(0);
+                setPage(2);
             }
             else
                 setError(true);
@@ -59,4 +66,4 @@ const useSignup = ({setPage, setData}) => {
     }
 }
 
-export default useSignup;
+export default useInfos;

@@ -14,12 +14,11 @@ import Menu from './components/menu';
 import HomePage from './components/home';
 import OrderDetails from './components/order';
 import useApp from './hooks/useApp';
+import Infos from './components/infos';
 
 function App() {
-  const { page, setPage, data, setData } = useApp();
+  const { page, setPage, data, setData, token, setToken, userType, setUserType, locked } = useApp();
   const [cartItems, setCartItems] = useState([]);
-  const [userType, setUserType] = useState(null); // Estado para controlar o tipo de usuário
-  const [isLoggedIn, setLoggedIn] = useState(false); // Estado para controlar se o usuário está logado
 
   // Função para adicionar produtos ao carrinho
   const addToCart = (product) => {
@@ -47,13 +46,18 @@ function App() {
   const productData = data.find((product) => product.id === productId);
 
   useEffect(() => {
-    setPage(2); // Definir a HomePage como a página inicial
-  }, [setPage]);
+    if(token !== "null" && token !== "undefined" && userType !== "null" && userType !== "undefined")
+      setPage(2);
+    else
+      setPage(0) // Definir a HomePage como a página inicial
+  }, []);
 
   // Função para lidar com o logout
   const handleLogout = () => {
     setUserType(null);
-    setLoggedIn(false);
+    setToken(null);
+    localStorage.removeItem("token");
+    localStorage.removeItem("userType")
     setPage(0);
   };
 
@@ -63,16 +67,17 @@ function App() {
         <Menu setPage={setPage} userType={userType} handleLogout={handleLogout} />
       </header>
       <main className="main">
-        {page === 0 && <Login setPage={setPage} setUserType={setUserType} />}
-        {page === 1 && <Signup setPage={setPage} setData={setData} />}
+        {locked ? <>
+        {page === 0 && <Login setPage={setPage} setUserType={setUserType} setToken={setToken} />}
+        {page === 1 && <Signup setPage={setPage} setData={setData} />}</> : <>
         {page === 2 && <HomePage setPage={setPage} userType={userType} setData={setData} addToCart={addToCart} />}
         {page === 3 && <AddProduct setPage={setPage} setData={setData} data={data} />}
         {page === 4 && <List setPage={setPage} data={data} setData={setData} />}
         {page === 5 && <Cart setPage={setPage} cartItems={cartItems} />}
         {page === 6 && <Payment setPage={setPage} cartItems={cartItems} />}
         {page === 7 && <OrderDetails setPage={setPage} product={productData} addToCart={addToCart} />}
-        {/* Renderizar o componente Product apenas se productId for diferente de null */}
-        {productId !== null && <Product setPage={setPage} product={productData} addToCart={addToCart} />}
+        {page === 8 && <Infos userType={userType} setPage={setPage} setData={setData} />}
+        {productId !== null && <Product setPage={setPage} product={productData} addToCart={addToCart} />}</>}
       </main>
     </div>
   );

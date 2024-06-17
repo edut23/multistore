@@ -2,7 +2,7 @@ import React from 'react';
 import '../../App.css';
 import useLogin from "../../hooks/useLogin";
 
-const Login = ({ setUserType, setPage }) => {
+const Login = ({ setUserType, setPage, setToken }) => {
   const {
     user,
     setUser,
@@ -14,7 +14,7 @@ const Login = ({ setUserType, setPage }) => {
     accountType,
     setAccountType,
     isLoggedIn,
-  } = useLogin({ setUserType, setPage });
+  } = useLogin({ setUserType, setPage, setToken });
 
   const renderSuccessMessage = () => {
     const handleVerProdutosClick = () => {
@@ -49,18 +49,6 @@ const Login = ({ setUserType, setPage }) => {
     <div className="login-container">
       {!isLoggedIn ? (
         <form onSubmit={handleSubmit} className="mb-3 mt-1 container-sm">
-          <div className="mb-3 mt-1 container-sm">
-            <label className="form-label">Tipo de Conta</label>
-            <select
-              value={accountType}
-              onChange={(e) => setAccountType(e.target.value)}
-              className="form-select"
-              required
-            >
-              <option value="Cliente">Cliente</option>
-              <option value="Loja">Loja</option>
-            </select>
-          </div>
           <div className="mb-3 mt-1 container-sm">
             <label className="form-label">Usuário</label>
             <input

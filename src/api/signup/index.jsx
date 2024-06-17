@@ -5,7 +5,7 @@ export const signupApi = async (username, password, role) => {
         const { data } = await Api.post('/auth/register', {username: username, password: password, role: role});
         
         if(data)
-            return data.token;
+            return data;
 
     } catch (error) {
         console.error(error)

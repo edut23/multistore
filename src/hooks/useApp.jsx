@@ -3,25 +3,25 @@ import { useState, useEffect } from "react";
 const useApp = () => {
     const [page, setPage] = useState(0);
     const [data, setData] = useState([]);
-    const [token, setToken] = useState(null);
+    const [token, setToken] = useState(localStorage.getItem('token'));
+    const [userType, setUserType] = useState(localStorage.getItem('userType'));
+    const [locked, setLocked] = useState(true);
 
     useEffect(() => {
-        if(data.length !== 0){
-            const dataString = JSON.stringify(data);
-            localStorage.setItem('dataPharma', dataString);
-        }
-    },[data])
+        if(token !== "null" && token !== "undefined" && userType !== "null" && userType !== "undefined")
+            setLocked(false);
+        else
+            setLocked(true);
+    },[token, userType])
 
     useEffect(() => {
-        localStorage.setItem('token', token)
+        localStorage.setItem('token', token);
     },[token])
 
     useEffect(() => {
-        const getData = localStorage.getItem('dataPharma');
-        if(getData !== "undefined" && getData !== null){
-        setData(JSON.parse(getData));
-        }
-    },[])
+        localStorage.setItem('userType', userType);
+    },[userType])
+
 
 
     return{
@@ -29,7 +29,10 @@ const useApp = () => {
         setPage,
         data,
         setData,
-        setToken
+        setToken,
+        userType,
+        setUserType,
+        locked
     }
 }
 

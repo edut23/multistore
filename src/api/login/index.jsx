@@ -5,7 +5,7 @@ export const loginApi = async (username, password) => {
         const { data } = await Api.post('/auth/login', {username: username, password: password});
         
         if(data)
-            return data.token;
+            return data;
 
     } catch (error) {
         console.error(error)

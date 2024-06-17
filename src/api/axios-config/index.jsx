@@ -6,8 +6,11 @@ const Api = axios.create({
 
 Api.interceptors.request.use(
     (config) => {
+        config.headers.Accept = "application/json";
         const token = localStorage.getItem("token");
-        if(token !== "null") {
+        console.log(token);
+        if(token !== "null" && token !== "undefined") {
+            console.log(token);
             config.headers.Authorization = `Bearer ${token}`;
         }
         return config;
