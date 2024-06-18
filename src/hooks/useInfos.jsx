@@ -31,7 +31,6 @@ const useInfos = ({userType, setPage, setData}) => {
         event.preventDefault();
         try{
             const token = userType === "ROLE_USER" ? await clientInfosAPI(newData) : await storeInfosAPI(newData);
-            console.log(token);
             if(token){
                 setPage(2);
             }

@@ -7,6 +7,7 @@ const Cart = ({ setPage }) => {
   return (
     <div className="container mt-5">
       <h1>Carrinho de Compras</h1>
+      <hr/>
       {cart?.itens?.length === 0 ? (
         <div>
           <p>O carrinho está vazio</p>
@@ -20,6 +21,7 @@ const Cart = ({ setPage }) => {
               <p>R$ {item?.produto.preco}</p>
               <p>Quantidade: {item?.quantidade}</p>
               {/*<button className="btn btn-primary" onClick={() => {deleteItem(item?.produto.id)}}>Remover produto</button>*/}
+              <hr/>
             </div>
           ))}
           <p>Total do carrinho: R$ {cart?.total}</p>

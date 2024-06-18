@@ -3,19 +3,19 @@ import '../../App.css';
 import Logo from '../../assets/multistoreLogo'; // Importação do componente de logo
 import useMenu from '../../hooks/useMenu';
 
-const Menu = ({ setPage, userType, handleLogout }) => {
+const Menu = ({ setPage, userType, handleLogout, profile }) => {
 
   const {handleLogoClick, handleLogoutAndRedirect} = useMenu({setPage, handleLogout});
 
   return (
       <>
-        <div className="menu-logo mb-2" onClick={handleLogoClick} style={{ cursor: 'pointer' }}>
+        <div className="menu-logo mb-2" style={{ cursor: 'pointer' }}>
           <Logo /> {/* Componente de logo */}
-          <h1>MULTISTORE-MASTER</h1> {/* Título da aplicação */}
+          <h1>MULTISTORE</h1> {/* Título da aplicação */}
         </div>
         <nav className="menu-nav">
           {/* Condicional para renderização dos botões com base no userType */}
-          {userType === null || userType === "null" || userType === "undefined" ? (
+          {userType === null || userType === "null" || userType === "undefined" || profile?.nome === null ? (
             <></>
           ) : (
             <>

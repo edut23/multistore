@@ -27,6 +27,8 @@ const useApp = () => {
             const data = userType === "ROLE_USER" ? await clientProfileAPI() : await storeProfileAPI();
             if(!data)
                 handleLogout();
+            if(data.nome === null || data.endereco === null)
+                setPage(8)
             setProfile(data);
         }
         catch(error){
@@ -38,7 +40,6 @@ const useApp = () => {
     const addProductToCart = async (id) => {
         try{
             const response = await addToCart(id);
-            console.log(response);
         }
         catch(error){
             console.log(error)
@@ -83,7 +84,8 @@ const useApp = () => {
         setUserType,
         locked,
         handleLogout,
-        addProductToCart
+        addProductToCart,
+        profile,
     }
 }
 

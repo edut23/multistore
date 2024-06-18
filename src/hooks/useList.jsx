@@ -18,7 +18,6 @@ const useList = ({setPage, data, setData}) => {
     const deleteItem = async(id) => {
         try{
             const response = await deleteStoreProduct(id)
-            console.log(response);
             fetchProducts();
         }
         catch(error){

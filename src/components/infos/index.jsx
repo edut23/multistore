@@ -161,9 +161,8 @@ const Infos = ({userType, setPage, setData}) => {
         </div>
       </>
       }
-      <div className="mb-2 container-sm d-grid gap-2 d-md-flex justify-content-md-between">
-        <button className="btn btn-link p-0 link" onClick={() => handlePage()}>Já tem cadastro? Faça o login!</button>      
-        <button type="submit" onKeyDown={handleKeyPress} className="btn btn-primary dftBlue">Cadastrar</button>
+      <div className="mb-2 container-sm d-grid gap-2 d-md-flex justify-content-md-center">    
+        <button type="submit" onKeyDown={handleKeyPress} className="btn btn-primary dftBlue">Finalizar Cadastro</button>
       </div>
       {error && <p className="error">Erro ao cadastrar. Tente novamente.</p>}
     </form>

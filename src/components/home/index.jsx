@@ -3,13 +3,13 @@ import axios from 'axios';
 import '../../App.css';
 import useHome from '../../hooks/useHome';
 
-const HomePage = ({ addToCart, userType, setPage, setProduct }) => {
+const HomePage = ({data, addToCart, userType, setPage, setProduct }) => {
   
   const {products, handleEditProduct} = useHome(setPage, setProduct);
-  console.log(products)
 
   return (
     <div className="home">
+      <h2 className='mb-5'>Bem-vindo {data?.nome}</h2>
       <div className="product-list">
         {products.map(product => (
           <div key={product.id} className="product-card">

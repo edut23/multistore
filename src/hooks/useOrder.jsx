@@ -8,7 +8,6 @@ const useOrder = () => {
     const fetchOrder = async() => {
         try{
             const data = await getOrder();
-            console.log(data)
             setOrders(data);
         }
         catch(error){
@@ -19,7 +18,6 @@ const useOrder = () => {
     const updateOrder = async(codigo, status) => {
         try{
             const response = await patchOrder(codigo, status);
-            console.log(response);
             fetchOrder();
         }
         catch(error){

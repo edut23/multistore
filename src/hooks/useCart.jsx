@@ -9,7 +9,6 @@ const useCart = () => {
     const fetchCart = async() => {
         try{
             const data = await getCart();
-            console.log(data);
             setCart(data);
         }
         catch(error){
@@ -20,7 +19,6 @@ const useCart = () => {
     const deleteItem = async(id) => {
         try{
             const response = await deleteProduct(id);
-            console.log(response);
         }
         catch(error){
             console.log(error);
@@ -30,7 +28,6 @@ const useCart = () => {
     const fetchOrder = async() => {
         try{
             const response = await postOrder();
-            console.log(response);
         }
         catch(error){
             console.log(error)

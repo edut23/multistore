@@ -17,7 +17,7 @@ import useApp from './hooks/useApp';
 import Infos from './components/infos';
 
 function App() {
-  const { page, setPage, data, setData, product, setProduct, setToken, userType, setUserType, locked, handleLogout, addProductToCart } = useApp();
+  const { page, setPage, data, setData, product, setProduct, setToken, userType, setUserType, locked, handleLogout, addProductToCart, profile } = useApp();
   const [cartItems, setCartItems] = useState([]);
 
   // Função para adicionar produtos ao carrinho
@@ -45,13 +45,13 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Menu setPage={setPage} userType={userType} handleLogout={handleLogout} />
+        <Menu setPage={setPage} userType={userType} handleLogout={handleLogout} profile={profile}/>
       </header>
       <main className="main">
         {locked ? <>
         {page === 0 && <Login setPage={setPage} setUserType={setUserType} setToken={setToken} />}
         {page === 1 && <Signup setPage={setPage} setData={setData} />}</> : <>
-        {page === 2 && <HomePage setPage={setPage} userType={userType} setData={setData} setProduct={setProduct} addToCart={addProductToCart} />}
+        {page === 2 && <HomePage data={profile} setPage={setPage} userType={userType} setData={setData} setProduct={setProduct} addToCart={addProductToCart} />}
         {page === 3 && <AddProduct setPage={setPage} setData={setData} data={data} />}
         {page === 4 && <List setPage={setPage} data={data} setData={setData} />}
         {page === 5 && <Cart setPage={setPage} cartItems={cartItems} />}

@@ -31,19 +31,13 @@ const useAddProducts = () => {
         
         await formData.append('produto', JSON.stringify(product))
         await formData.append('imagens', imagens)
-        console.log(product, formData)
         try{
             const response = await addProduct(formData);
-            console.log(response);
         }
         catch(error){
             console.log(error);
         }
     }
-
-    useEffect(() => {
-        console.log(product)
-    },[product])
 
     return {product, setProduct, setImagens, formData, handleFileChange, fetchProduct}
 }

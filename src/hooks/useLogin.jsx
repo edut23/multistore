@@ -18,7 +18,6 @@ const useLogin = ({ setUserType, setPage, setToken}) => {
             if(token){
                 setToken(token?.token);
                 setUserType(token?.role[0].authority);
-                console.log(token?.role[0].authority)
                 setPage(2);
             }
             else

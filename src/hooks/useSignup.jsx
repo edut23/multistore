@@ -24,7 +24,6 @@ const useSignup = ({setPage, setData}) => {
         event.preventDefault();
         try{
             const token = await signupApi(newData.user, newData.password, newData.role);
-            console.log(token);
             if(token){
                 setPage(0);
             }

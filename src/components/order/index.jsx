@@ -18,6 +18,7 @@ const OrderDetails = ({ setPage, product, addToCart }) => {
             {/* Exibição de detalhes do pedido */}
             <div >
               <h1>Detalhes do Pedido</h1>
+              <hr/>
               <p>Número do Pedido: {order.codigo}</p>
               <p>Loja: {order.loja.nome}</p>
               <p>Cliente: {order?.cliente?.nome + " " + order?.cliente?.sobrenome}</p>
