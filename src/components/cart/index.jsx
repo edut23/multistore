@@ -1,35 +1,29 @@
 import React from 'react';
+import useCart from '../../hooks/useCart';
 
-const Cart = ({ setPage, cartItems }) => {
-  const calculateTotal = () => {
-    let total = 0;
-    cartItems.forEach((item) => {
-      total += item.price * item.quantity;
-    });
-    return total.toFixed(2);
-  };
-
-  const total = calculateTotal();
+const Cart = ({ setPage }) => {
+  const {cart, fetchOrder, deleteItem} = useCart();
 
   return (
     <div className="container mt-5">
       <h1>Carrinho de Compras</h1>
-      {cartItems.length === 0 ? (
+      {cart?.itens?.length === 0 ? (
         <div>
           <p>O carrinho está vazio</p>
           <button className="btn btn-secondary" onClick={() => setPage(2)}>Voltar</button>
         </div>
       ) : (
         <div>
-          {cartItems.map((item, index) => (
+          {cart?.itens?.map((item, index) => (
             <div key={index}>
-              <p>{item.name}</p>
-              <p>R$ {item.price}</p>
-              <p>Quantidade: {item.quantity}</p>
+              <p>{item?.produto.nome}</p>
+              <p>R$ {item?.produto.preco}</p>
+              <p>Quantidade: {item?.quantidade}</p>
+              {/*<button className="btn btn-primary" onClick={() => {deleteItem(item?.produto.id)}}>Remover produto</button>*/}
             </div>
           ))}
-          <p>Total: R$ {total}</p>
-          <button className="btn btn-primary" onClick={() => setPage(6)}>Ir para o Pagamento</button>
+          <p>Total do carrinho: R$ {cart?.total}</p>
+          <button className="btn btn-primary" onClick={() => {fetchOrder(); setPage(2)}}>Concluir pedido</button>
         </div>
       )}
     </div>

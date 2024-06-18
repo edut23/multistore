@@ -17,14 +17,16 @@ const useApp = () => {
         setUserType(null);
         setToken(null);
         localStorage.removeItem("token");
-        localStorage.removeItem("userType")
+        localStorage.removeItem("userType");
+        setLocked(true);
         setPage(0);
     };
 
     const fetchProfile = async () => {
         try{
             const data = userType === "ROLE_USER" ? await clientProfileAPI() : await storeProfileAPI();
-            console.log(data);
+            if(!data)
+                handleLogout();
             setProfile(data);
         }
         catch(error){

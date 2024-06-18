@@ -9,7 +9,7 @@ Api.interceptors.request.use(
         config.headers.Accept = "application/json";
         const token = localStorage.getItem("token");
         console.log(token);
-        if(token !== "null" && token !== "undefined") {
+        if(token !== "null" && token !== "undefined" && token !== null) {
             console.log(token);
             config.headers.Authorization = `Bearer ${token}`;
         }
