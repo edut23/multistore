@@ -26,7 +26,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 20px;
   height: 79%;
 }
@@ -231,6 +231,10 @@ button {
 
 .product-card .card-body {
   padding: 15px;
+  display: flex;
+  height: 45%;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .product-card .card-title {
@@ -293,9 +297,6 @@ button {
   border-bottom: 1px solid #eee;
 }
 
-.product-card .card-body {
-  padding: 15px;
-}
 
 .product-card .card-title {
   font-size: 1.25rem;
