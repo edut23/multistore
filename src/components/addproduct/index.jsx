@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import useAddProducts from '../../hooks/useAddProduct';
 
 const AddProduct = ({ setPage, setData, data }) => {
-  const {product, setProduct, handleFileChange, fetchProduct} = useAddProducts();
+  const {product, setProduct, setImagens, handleFileChange, fetchProduct} = useAddProducts();
 
   return (
     <div className="container mt-5">
@@ -22,7 +22,7 @@ const AddProduct = ({ setPage, setData, data }) => {
         </div>
         <div className="mb-3">
           <label className="form-label">URL da Imagem</label>
-          <input type="file" name="arquivos" class="btn btn-success"  accept="image/png, image/jpeg"  multiple className="form-control" onChange={(e) => handleFileChange([e.target.files[0]])} />
+          <input type="file" name="arquivos" class="btn btn-success"  accept="image/png, image/jpeg"  multiple className="form-control" onChange={(e) => setImagens(e.target.files[0])} />
         </div>
         <button type="button" className="btn btn-primary" onClick={() => fetchProduct()}>Adicionar Produto</button>
       </form>

@@ -11,13 +11,12 @@ const OrderDetails = ({ setPage, product, addToCart }) => {
   }
 
   return (
-    <div className="container mt-5">
-      <button className="btn btn-secondary mb-3" onClick={() => setPage(2)}>Voltar</button>
+    <div className="container-lg mt-5">
       {orders?.map((order) => (
         <>
           <div key={order.codigo} className="row">
             {/* Exibição de detalhes do pedido */}
-            <div className="col-md-6">
+            <div >
               <h1>Detalhes do Pedido</h1>
               <p>Número do Pedido: {order.codigo}</p>
               <p>Loja: {order.loja.nome}</p>
@@ -28,10 +27,10 @@ const OrderDetails = ({ setPage, product, addToCart }) => {
             </div>
           </div>
           <div className="row mt-3">
-            <div className="col-md-6">
+            <div>
               {/* Botão Adicionar ao Carrinho (simulado para pedidos, ajuste conforme necessário) */}
               {order.status === "PENDENTE" && 
-                <button className="btn btn-primary" onClick={() => updateOrder(order.codigo, "CANCELADO")}>Cancelar pedido</button>}
+                <button className="btn btn-danger" onClick={() => updateOrder(order.codigo, "CANCELADO")}>Cancelar pedido</button>}
               {order.status === "EM_PROGRESSO" && 
                 <button className="btn btn-primary" onClick={() => updateOrder(order.codigo, "CONCLUIDO")}>Confirmar entrega</button>}
             </div>

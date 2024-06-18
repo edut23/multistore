@@ -5,7 +5,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import '@fontsource/montserrat/400.css';
 import Login from './components/login';
 import Signup from './components/signup';
-import List from './components/list';
+import List from './components/productList';
 import Product from './components/product';
 import AddProduct from './components/addproduct';
 import Payment from './components/payment';

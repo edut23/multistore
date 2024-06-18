@@ -10,11 +10,10 @@ const HomePage = ({ addToCart, userType, setPage, setProduct }) => {
 
   return (
     <div className="home">
-      <h2>Produtos</h2>
       <div className="product-list">
         {products.map(product => (
           <div key={product.id} className="product-card">
-            <img src={product.image} alt={product.name} />
+            <img src={product.image} style={{height: "55%"}} alt={product.name} />
             <div className="card-body">
               <h5 className="card-title">{product.name}</h5>
               <p className="card-text">R$ {product.price.toFixed(2)}</p>

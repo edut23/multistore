@@ -8,9 +8,8 @@ const Menu = ({ setPage, userType, handleLogout }) => {
   const {handleLogoClick, handleLogoutAndRedirect} = useMenu({setPage, handleLogout});
 
   return (
-    <div className="menu">
-      <header className="menu-header">
-        <div className="menu-logo" onClick={handleLogoClick} style={{ cursor: 'pointer' }}>
+      <>
+        <div className="menu-logo mb-2" onClick={handleLogoClick} style={{ cursor: 'pointer' }}>
           <Logo /> {/* Componente de logo */}
           <h1>MULTISTORE-MASTER</h1> {/* Título da aplicação */}
         </div>
@@ -36,12 +35,11 @@ const Menu = ({ setPage, userType, handleLogout }) => {
                   <button className="btn dftBlue" onClick={() => setPage(8)}>Informações de usuário</button>
                 </>
               )}
-              <button className="btn dftBlue" onClick={handleLogoutAndRedirect}>Sair</button>
+              <button className="btn btn-danger" onClick={handleLogoutAndRedirect}>Sair</button>
             </>
           )}
         </nav>
-      </header>
-    </div>
+      </>
   );
 };
 

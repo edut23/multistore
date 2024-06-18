@@ -9,7 +9,6 @@ const Product = ({ setPage, product, addToCart }) => {
 
   return (
     <div className="container mt-5">
-      <button className="btn btn-secondary mb-3" onClick={() => setPage(2)}>Voltar</button>
       <div className="row">
         <div className="col-md-6">
           <img src={product?.image} alt={product?.name} className="img-fluid" />

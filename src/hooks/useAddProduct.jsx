@@ -7,8 +7,9 @@ const useAddProducts = () => {
         nome: "",
         descricao: "",
         preco: 0,
-        imagens: []
     });
+
+    const [imagens, setImagens] = useState();
 
     const formData = new FormData();
 
@@ -28,10 +29,8 @@ const useAddProducts = () => {
 
     const fetchProduct = async() => {
         
-        await formData.append('nome', product.nome)
-        await formData.append('descricao', product.descricao)
-        await formData.append('preco', product.preco)
-        await formData.append('imagens', product.imagens)
+        await formData.append('produto', JSON.stringify(product))
+        await formData.append('imagens', imagens)
         console.log(product, formData)
         try{
             const response = await addProduct(formData);
@@ -46,7 +45,7 @@ const useAddProducts = () => {
         console.log(product)
     },[product])
 
-    return {product, setProduct, formData, handleFileChange, fetchProduct}
+    return {product, setProduct, setImagens, formData, handleFileChange, fetchProduct}
 }
 
 export default useAddProducts;

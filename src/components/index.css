@@ -1,8 +1,6 @@
 .form{
     max-width: 40%;
     max-height: 100%;
-    border: solid 1px #888888;
-    box-shadow: 1px 1px #888888;
     border-radius: 8px;
     background-color: #F6F4F3;
     overflow-y: auto;
